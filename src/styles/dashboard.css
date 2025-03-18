@@ -1,0 +1,23 @@
+.dashboard {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .dashboard h1 {
+    color: #004aad;
+  }
+  
+  .dashboard-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .dashboard-actions button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+  }
+  

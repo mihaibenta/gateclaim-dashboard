@@ -1,0 +1,53 @@
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: #ffffff;
+    padding: 15px 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Left section (Brand Name) */
+  .navbar-left h2 {
+    margin: 0;
+    color: #004aad;
+    font-size: 22px;
+  }
+  
+  /* Right section */
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  /* Navbar buttons */
+  .nav-btn {
+    background: #f4f4f4;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .nav-btn:hover {
+    background: #e0e0e0;
+  }
+  
+  /* Profile icon */
+  .profile-icon {
+    background: #004aad;
+    color: white;
+    font-weight: bold;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+ 

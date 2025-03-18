@@ -1,0 +1,33 @@
+/* Main Layout */
+.layout {
+    display: flex;
+    height: 100vh;
+    width: 100vw; /* Ensure it takes full width */
+  }
+  
+  /* Sidebar (Assuming you have a sidebar) */
+  .sidebar {
+    width: 250px; /* Adjust based on design */
+    background: #ffffff;
+    color: white;
+    padding: 20px;
+    flex-shrink: 0; /* Prevent sidebar from shrinking */
+  }
+  
+  /* Main Content (Expands fully after sidebar) */
+  .main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    width: calc(100vw - 250px); /* Ensures full width minus sidebar */
+  }
+  
+  /* Page Content */
+  .page-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    width: 100%; /* Ensure it takes full width */
+    box-sizing: border-box; /* Prevents unwanted spacing */
+  }
+  

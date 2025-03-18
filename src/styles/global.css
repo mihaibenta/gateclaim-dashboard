@@ -1,0 +1,39 @@
+/* Prevents horizontal scrolling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+  
+  .layout {
+    display: flex;
+    height: 100vh;
+    width: 100vw; /* Ensure full width */
+    overflow-x: hidden; /* Prevent overflow */
+  }
+  
+  /* Main content expands properly */
+  .main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Prevents flex children from causing overflow */
+    width: calc(100vw - 250px); /* Adjusted for sidebar */
+  }
+  
+  /* Ensures the page content does not exceed parent width */
+  .page-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
