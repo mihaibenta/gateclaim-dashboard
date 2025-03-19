@@ -8,8 +8,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="user">
-        <span>🌍</span>
-        <span className="user-icon" onClick={() => navigate("/account")}>👤</span>
+        <span className="user-icon" onClick={() => navigate("/account")}>M</span>
       </div>
     </div>
   );

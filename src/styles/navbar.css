@@ -50,4 +50,20 @@
     cursor: pointer;
   }
 
+  span.user-icon {
+    background: #efefff;
+    padding: 10px;
+    color:#004aad;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e3e3e3;
+    border-radius: 50%; /* Makes the element circular */
+    width: 40px; /* Define width */
+    height: 40px; /* Define height (same as width to ensure it's circular) */
+    display: flex; /* To center content inside */
+    align-items: center; /* Vertically center the content */
+    justify-content: center; /* Horizontally center the content */
+  }
+  
+
  
