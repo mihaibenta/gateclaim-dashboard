@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import UserAccount from "./pages/UserAccount";
 import Claims from "./pages/Claims"; // ✅ Import the Claims page
 import "./styles/global.css";
+import Login from "./pages/Login"
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/account" element={<UserAccount />} />
           <Route path="/claims" element={<Claims />} /> {/* ✅ New Route */}
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Layout>
     </Router>
