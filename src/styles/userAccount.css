@@ -1,7 +1,180 @@
+/* ACCOUNT CONTAINER */
 .account-container {
-    width: 100%;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* BACK BUTTON */
+.back-button {
+  background: none;
+  border: none;
+  color: #0061ff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+/* HEADINGS */
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #004aad;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #004aad;
+}
+
+/* USER TABS */
+.user-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.user-tabs button {
+  background: #ffffff;
+  padding: 12px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.user-tabs button.active {
+  background: #c3daff;
+  color: rgb(21, 21, 21);
+  border:none!important;
+}
+
+.user-tabs button:hover {
+  background: #e6efff;
+}
+
+/* USER PROFILE */
+.user-profile {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* FORM ROW (for grouping inputs) */
+.form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #1a1a1a;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+  background: #f5f5f5;
+  color: #666;
+  font-size: 14px;
+}
+
+.form-group input:disabled {
+  background: #e9ecef;
+  color: #888;
+}
+
+/* INFO TEXT */
+.info-text {
+  display: flex;
+  align-items: center;
+  background: #e6efff;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #1a1a1a;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* UPDATE BUTTON */
+.update-btn {
+  background: #d6e4ff;
+  color: #1a1a1a;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: not-allowed;
+  width: 100%;
+  text-align: center;
+}
+
+/* PASSWORD SECTION */
+.password-section {
+  margin-top: 25px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* PASSWORD BUTTON */
+.change-password-btn {
+  background: #0061ff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  display: block;
+  width: fit-content;
+  margin-top: 10px;
+}
+
+.change-password-btn:hover {
+  background: #004bbd;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
   }
-  
+
+  .update-btn,
+  .change-password-btn {
+    width: 100%;
+  }
+}

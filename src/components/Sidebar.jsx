@@ -14,11 +14,11 @@ const Sidebar = () => {
             🏠 Home
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to="/trips" className={({ isActive }) => (isActive ? "active" : "")}>
             ✈️ Trips
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink to="/claims" className={({ isActive }) => (isActive ? "active" : "")}>
             🛡️ Claims

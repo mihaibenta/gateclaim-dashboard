@@ -32,7 +32,7 @@ const Claims = () => {
 
   return (
     <div className="page-content">
-      <h1>Your Claims</h1>
+      <h2>Your Claims</h2>
       <p>Track the status of your active claims below.</p>
 
       {/* Claims Table */}

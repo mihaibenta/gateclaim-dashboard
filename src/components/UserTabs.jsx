@@ -7,9 +7,9 @@ const UserTabs = ({ activeTab, setActiveTab }) => {
       <button className={activeTab === "details" ? "active" : ""} onClick={() => setActiveTab("details")}>
         Details
       </button>
-      <button className={activeTab === "plans" ? "active" : ""} onClick={() => setActiveTab("plans")}>
+      {/* <button className={activeTab === "plans" ? "active" : ""} onClick={() => setActiveTab("plans")}>
         Plans and beneficts
-      </button>
+      </button> */}
       <button className={activeTab === "notifications" ? "active" : ""} onClick={() => setActiveTab("notifications")}>
         Notifications
       </button>

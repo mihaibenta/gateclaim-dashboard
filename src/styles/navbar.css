@@ -1,69 +1,66 @@
 /* Navbar container */
 .navbar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background: #ffffff;
-    padding: 15px 20px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Left section (Brand Name) */
-  .navbar-left h2 {
-    margin: 0;
-    color: #004aad;
-    font-size: 22px;
-  }
-  
-  /* Right section */
-  .navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  /* Navbar buttons */
-  .nav-btn {
-    background: #f4f4f4;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .nav-btn:hover {
-    background: #e0e0e0;
-  }
-  
-  /* Profile icon */
-  .profile-icon {
-    background: #004aad;
-    color: white;
-    font-weight: bold;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: #ffffff;
+  padding: 15px 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-  span.user-icon {
-    background: #efefff;
-    padding: 10px;
-    color:#004aad;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #e3e3e3;
-    border-radius: 50%; /* Makes the element circular */
-    width: 40px; /* Define width */
-    height: 40px; /* Define height (same as width to ensure it's circular) */
-    display: flex; /* To center content inside */
-    align-items: center; /* Vertically center the content */
-    justify-content: center; /* Horizontally center the content */
-  }
-  
+/* Profile icon */
+span.user-icon {
+  background: #efefff;
+  padding: 10px;
+  color: #004aad;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e3e3e3;
+  border-radius: 50%; /* Makes the element circular */
+  width: 40px; /* Define width */
+  height: 40px; /* Define height (same as width to ensure it's circular) */
+  display: flex; /* To center content inside */
+  align-items: center; /* Vertically center the content */
+  justify-content: center; /* Horizontally center the content */
+  cursor: pointer;
+  position: relative;
+}
 
- 
+/* Popup */
+.popup {
+  position: absolute;
+  top: 50px; /* Adjusted to position below the icon */
+  right: 0;
+  background: white;
+  border: 1px solid #e3e3e3;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-content p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.popup button {
+  background: #004aad;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.popup button:hover {
+  background: #0066cc;
+}
