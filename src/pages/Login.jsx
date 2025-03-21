@@ -16,7 +16,8 @@ const Login = () => {
       setError("Please enter both email and password.");
       return;
     }
-
+   
+    
     try {
       const response = await fetch("https://api.gateclaim.com/user/login", {
         method: "POST",
@@ -24,38 +25,29 @@ const Login = () => {
           "Content-Type": "application/json",
           "Accept": "*/*",
         },
-        credentials: "include", // Ensures cookies are sent and received
+        credentials: "include", // Ensures cookies are sent & stored
         body: JSON.stringify({ email, password }),
       });
 
+      // Check for a successful response
       if (!response.ok) {
         throw new Error("Login failed.");
       }
 
-      // After the login, the server should set the cookies in the browser
-      // You can check the cookies using document.cookie or use js-cookie if needed
-
-      // Store the cookies (like JSESSIONID) in localStorage (if necessary)
-      const cookies = document.cookie; // Get cookies from the document
-      const sessionId = getCookie("JSESSIONID", cookies); // Extract JSESSIONID cookie
-
-      if (sessionId) {
-        localStorage.setItem("JSESSIONID", sessionId); // Save session cookie in localStorage
-        console.log("Stored JSESSIONID:", sessionId);
-      }
-
+      // After login success, cookies should be stored automatically by the browser
       alert("Login Successful!");
-      navigate("/"); // Redirect to homepage after login
+
+      // Check if cookies are set in the browser (Optional)
+      const cookies = document.cookie; // This will show the cookies stored in the browser
+      console.log("Cookies:", cookies);
+
+      // Navigate to the home page or another page
+      navigate("/");
+
     } catch (err) {
       setError("Login failed. Check your credentials.");
       console.error("Login Error:", err);
     }
-  };
-
-  // Helper function to extract cookie value by name
-  const getCookie = (name, cookies) => {
-    const match = cookies.match(new RegExp('(^| )' + name + '=([^;]+)'));
-    return match ? match[2] : null;
   };
 
   return (
