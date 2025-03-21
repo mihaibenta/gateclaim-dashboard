@@ -5,24 +5,34 @@ import "../styles/navbar.css";
 const Navbar = () => {
   const navigate = useNavigate();
   const [isPopupVisible, setPopupVisible] = useState(false);
-  const popupRef = useRef(null); // Reference for the popup to check clicks outside
-  const userIconRef = useRef(null); // Reference for the user icon
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
+  const popupRef = useRef(null);
+  const userIconRef = useRef(null);
+
+  useEffect(() => {
+    // Check if user is logged in based on localStorage (or API call)
+    const user = localStorage.getItem("user"); // Replace with actual auth check
+    setIsLoggedIn(!!user); // Convert to boolean
+  }, []);
 
   const handleLogout = () => {
-    // Handle logout logic here (e.g., clearing local storage or calling an API)
-    console.log("Logging out...");
-    setPopupVisible(false); // Close the popup on logout
+    localStorage.removeItem("user"); // Remove user session
+    setIsLoggedIn(false); // Update state
+    setPopupVisible(false);
+    navigate("/login"); // Redirect to login after logout
+  };
+
+  const handleLogin = () => {
+    navigate("/login"); // Redirect to login page
   };
 
   const goToAccount = () => {
-    setPopupVisible(false); // Close the popup before navigating
-    navigate("/account"); // Navigate to the account page
+    setPopupVisible(false);
+    navigate("/account");
   };
 
-  // Close the popup if clicking outside of it
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // Close the popup only if clicking outside the popup and user icon
       if (
         popupRef.current &&
         !popupRef.current.contains(event.target) &&
@@ -33,7 +43,6 @@ const Navbar = () => {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -47,14 +56,24 @@ const Navbar = () => {
           className="user-icon"
           onClick={() => setPopupVisible(!isPopupVisible)}
         >
-          M
+          {isLoggedIn ? "M" : "?"} {/* Show user icon or guest icon */}
         </span>
+
         {isPopupVisible && (
           <div className="popup" ref={popupRef}>
             <div className="popup-content">
-              <p>Email: benta_mihai007@yahoo.com</p>
-              <button onClick={handleLogout}>Logout</button>
-              <button onClick={goToAccount}>Go to Account</button>
+              {isLoggedIn ? (
+                <>
+                  <p>Email: benta_mihai007@yahoo.com</p>
+                  <button onClick={goToAccount}>Go to Account</button>
+                  <button onClick={handleLogout}>Logout</button>
+                </>
+              ) : (
+                <>
+                  <p>You are not logged in.</p>
+                  <button onClick={handleLogin}>Login</button>
+                </>
+              )}
             </div>
           </div>
         )}
