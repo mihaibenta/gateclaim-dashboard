@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 import "../styles/login.css";
+import logo from "/logo_gt_transparent.png"; // Import the logo
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { login } = useUser();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,65 +19,77 @@ const Login = () => {
       setError("Please enter both email and password.");
       return;
     }
-   
-    
+
     try {
       const response = await fetch("https://api.gateclaim.com/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Accept": "*/*",
+          Accept: "*/*",
         },
-        credentials: "include", // Ensures cookies are sent & stored
+        credentials: "include",
         body: JSON.stringify({ email, password }),
       });
 
-      // Check for a successful response
-      if (!response.ok) {
-        throw new Error("Login failed.");
+      if (response.ok) {
+        try {
+          const userResponse = await fetch("https://api.gateclaim.com/user/info/all", {
+            method: "GET",
+            headers: {
+              Accept: "*/*",
+            },
+            credentials: "include",
+          });
+
+          if (userResponse.ok) {
+            const userData = await userResponse.json();
+            login(userData);
+            navigate("/");
+          } else {
+            setError("Failed to fetch user details.");
+          }
+        } catch (error) {
+          setError("Error fetching user details.");
+        }
+      } else {
+        setError("Invalid email or password.");
       }
-
-      // After login success, cookies should be stored automatically by the browser
-      alert("Login Successful!");
-
-      // Check if cookies are set in the browser (Optional)
-      const cookies = document.cookie; // This will show the cookies stored in the browser
-      console.log("Cookies:", cookies);
-
-      // Navigate to the home page or another page
-      navigate("/");
-
     } catch (err) {
-      setError("Login failed. Check your credentials.");
-      console.error("Login Error:", err);
+      setError("Something went wrong. Please try again.");
     }
   };
 
   return (
+    <div className="login-page">
     <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <div className="login-card">
+       
+        <h2>Welcome Back</h2>
         {error && <p className="error">{error}</p>}
-        <div className="input-group">
-          <label>Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-          />
-        </div>
-        <div className="input-group">
-          <label>Password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
-          />
-        </div>
-        <button type="submit" className="login-button">Login</button>
-      </form>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <label>Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email"
+            />
+          </div>
+          <div className="input-group">
+            <label>Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+            />
+          </div>
+          <button type="submit" className="login-button">Login</button>
+          <img src={logo} alt="GateClaim Logo" className="login-logo" />
+        </form>
+      </div>
+    </div>
     </div>
   );
 };
