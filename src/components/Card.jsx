@@ -3,7 +3,7 @@ import "../styles/card.css";
 
 const Card = ({ title, subtitle, icon, }) => {
   const handleClick = () => {
-    window.location.href = "https://gateclaim.com/en/eligibility-check/";
+    window.location.href = "https://gateclaim.com/en/eligibility-check/passenger-info/";
   };
 
   return (

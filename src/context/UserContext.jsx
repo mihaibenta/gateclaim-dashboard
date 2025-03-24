@@ -29,15 +29,12 @@ export const UserProvider = ({ children }) => {
         if (response.ok) {
           const userData = await response.json();
           setUser(userData); // Set user data if logged in
-          localStorage.setItem("user", JSON.stringify(userData)); // Persist in localStorage
         } else {
           setUser(null); // No user, clear state
-          localStorage.removeItem("user"); // Remove user data from localStorage
         }
       } catch (error) {
         console.error("Error verifying session:", error);
         setUser(null); // Clear state in case of error
-        localStorage.removeItem("user"); // Remove user data from localStorage
       } finally {
         setLoading(false); // Set loading to false after checking
       }
@@ -50,13 +47,11 @@ export const UserProvider = ({ children }) => {
   // Function to log in the user
   const login = (userData) => {
     setUser(userData); // Update state immediately
-    localStorage.setItem("user", JSON.stringify(userData)); // Save user data to localStorage
   };
 
   // Function to log out the user
   const logout = () => {
     setUser(null);
-    localStorage.removeItem("user"); // Remove user from localStorage
   };
 
   // Provide context to components

@@ -6,7 +6,7 @@ const HelpOptions = () => {
     {
       icon: "🔍✈️", // Replace with actual image/icons
       text: "Add Request",
-      link: "https://gateclaim.com/en/eligibility-check",
+      link: "https://gateclaim.com/en/eligibility-check/passenger-info/",
     },
     {
       icon: "📍🛡️",
@@ -16,7 +16,7 @@ const HelpOptions = () => {
     {
       icon: "❓📘",
       text: "FAQ",
-      link: "#",
+      link: "https://gateclaim.com/en/faq/",
     },
     {
       icon: "🎧",
