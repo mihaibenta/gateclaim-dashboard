@@ -12,8 +12,8 @@ const Dashboard = () => {
       <h3>Your Compensation Claims</h3>
       <Card icon="💰" title="No claims yet" subtitle="Start a new claim now!" />
       
-      <h3>Your Travels</h3>
-      <Card icon="🛡️" title="Protect your upcoming trip" subtitle="Fly worry-free." />
+      {/* <h3>Your Travels</h3>
+      <Card icon="🛡️" title="Protect your upcoming trip" subtitle="Fly worry-free." /> */}
     </div>
   );
 };

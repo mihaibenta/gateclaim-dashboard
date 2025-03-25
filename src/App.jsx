@@ -7,6 +7,7 @@ import Claims from "./pages/Claims";
 import Login from "./pages/Login";
 import { UserProvider } from "./context/UserContext";
 import "./styles/global.css";
+import Bank from "./components/BankDetailsForm"
 
 const AppContent = () => {
   const location = useLocation();
@@ -24,6 +25,7 @@ const AppContent = () => {
             <Route path="/" element={<Home />} />
             <Route path="/account" element={<UserAccount />} />
             <Route path="/claims" element={<Claims />} />
+            <Route path="/bank" element={<Bank/>} />
           </Routes>
         </Layout>
       )}

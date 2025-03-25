@@ -23,6 +23,11 @@ const HelpOptions = () => {
       text: "Contact Us",
       link: "#",
     },
+    {
+      icon: "📂",
+      text: "Documents",
+      link: "/",
+    },
   ];
 
   return (
