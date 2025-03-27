@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import UserProfile from "../components/UserProfile";
 import UserTabs from "../components/UserTabs";
+import BankDetailsForm from "../components/BankDetailsForm";
+import DocumentsUpload from "../components/DocumentsUpload";
 import "../styles/userAccount.css";
 
 const UserAccount = () => {
@@ -18,6 +20,8 @@ const UserAccount = () => {
       {activeTab === "details" && <UserProfile key={activeTab} />}
       {activeTab === "plans" && <h3>Plans and Benefits (Coming soon...)</h3>}
       {activeTab === "notifications" && <h3>Notifications (Coming soon...)</h3>}
+      {activeTab === "bank" && <BankDetailsForm key={activeTab}/>}
+      {activeTab === "documents" && <DocumentsUpload key={activeTab}/>}
     </div>
   );
 };

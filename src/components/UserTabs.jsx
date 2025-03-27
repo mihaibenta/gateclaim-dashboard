@@ -13,6 +13,12 @@ const UserTabs = ({ activeTab, setActiveTab }) => {
       <button className={activeTab === "notifications" ? "active" : ""} onClick={() => setActiveTab("notifications")}>
         Notifications
       </button>
+      <button className={activeTab === "documents" ? "active" : ""} onClick={() => setActiveTab("documents")}>
+        Documents
+      </button>
+      <button className={activeTab === "bank" ? "active" : ""} onClick={() => setActiveTab("bank")}>
+        Payment Details
+      </button>    
     </div>
   );
 };

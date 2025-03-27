@@ -4,17 +4,22 @@ import "../styles/helpOptions.css";
 const HelpOptions = () => {
   const options = [
     {
-      icon: "🔍✈️", // Replace with actual image/icons
+      icon: "✈️", // Replace with actual image/icons
       text: "Add Request",
       link: "https://gateclaim.com/en/eligibility-check/passenger-info/",
     },
     {
-      icon: "📍🛡️",
-      text: "Protect My Trip",
-      link: "#",
+      icon: "🛡️",
+      text: "Your Claims",
+      link: "/claims",
     },
     {
-      icon: "❓📘",
+      icon: "📂",
+      text: "Documents",
+      link: "/account",
+    },
+    {
+      icon: "❓",
       text: "FAQ",
       link: "https://gateclaim.com/en/faq/",
     },
@@ -23,11 +28,7 @@ const HelpOptions = () => {
       text: "Contact Us",
       link: "#",
     },
-    {
-      icon: "📂",
-      text: "Documents",
-      link: "/",
-    },
+  
   ];
 
   return (

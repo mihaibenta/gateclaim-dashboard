@@ -1,70 +1,136 @@
 /* BankDetailsForm.css */
 
-/* Container */
+/* General Form Container */
 .form-container {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Form Header */
-  .form-container h2 {
-    text-align: center;
-    color: #333;
+    max-width: 1080px;
+    padding: 25px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+    font-family: "Inter", sans-serif;
+}
+
+/* Form Title */
+.form-container h2 {
+    text-align: left;
+    color: #0056b3;
+    font-size: 22px;
+    font-weight: 600;
     margin-bottom: 20px;
-  }
-  
-  /* Label Styles */
-  .form-container label {
+}
+
+/* Labels */
+.form-container label {
     display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #555;
-  }
-  
-  /* Input Styles */
-  .form-container input[type="text"] {
+    font-weight: 500;
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 6px;
+}
+
+/* Input Fields */
+.form-container input[type="text"] {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-  }
-  
-  /* Checkbox Styles */
-  .form-container input[type="checkbox"] {
-    margin-right: 10px;
-  }
-  
-  /* Checkbox Label */
-  .checkbox-group {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #f8f9fa;
+    font-weight:600;
+    transition: border 0.3s ease-in-out;
+    outline: none;
+    color:#000;
+}
+
+.form-container input[type="text"]:focus {
+    border: 1px solid #007bff;
+    background: #fff;
+    color:#000;
+}
+
+/* Checkbox Group */
+.checkbox-group {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    gap: 8px;
     font-size: 14px;
     color: #333;
-  }
-  
-  /* Submit Button */
-  .form-container button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Checkbox Styling */
+.form-container input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #007bff;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .form-container button:hover {
-    background-color: #0056b3;
-  }
-  
+    
+}
+
+/* Submit Button */
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-container button:hover {
+    background: #0056b3;
+}
+
+/* Dropdown (Select Menu) */
+.form-container select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #f8f9fa;
+    color:#000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border 0.3s ease-in-out;
+    outline: none;
+}
+
+/* Focus Effect */
+.form-container select:focus {
+    border: 1px solid #007bff;
+    background: #fff;
+}
+
+
+/* Error Messages */
+.error {
+    color: #d9534f;
+    font-size: 13px;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+.form-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom:20px;
+}
+
+.form-left, .form-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    .form-content {
+        flex-direction: column;
+    }
+}

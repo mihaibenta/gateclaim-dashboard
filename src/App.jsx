@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import { UserProvider } from "./context/UserContext";
 import "./styles/global.css";
 import Bank from "./components/BankDetailsForm"
+import DocumentsUpload from "./components/DocumentsUpload";
 
 const AppContent = () => {
   const location = useLocation();
@@ -25,7 +26,8 @@ const AppContent = () => {
             <Route path="/" element={<Home />} />
             <Route path="/account" element={<UserAccount />} />
             <Route path="/claims" element={<Claims />} />
-            <Route path="/bank" element={<Bank/>} />
+            <Route path="/payment" element={<Bank/>} />
+            <Route path="/documents" element={<DocumentsUpload/>}/>
           </Routes>
         </Layout>
       )}
