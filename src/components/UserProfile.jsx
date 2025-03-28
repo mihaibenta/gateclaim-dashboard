@@ -10,9 +10,11 @@ const UserProfile = () => {
   const [newPassword, setNewPassword] = useState("");
   const [isChangingPassword, setIsChangingPassword] = useState(false);
   const [isChangingName, setIsChangingName] = useState(false);
+  const [isChangingPhone, setIsChangingPhone] = useState(false);
   const [firstName, setFirstName] = useState(user?.name?.firstName || "");
   const [lastName, setLastName] = useState(user?.name?.lastName || "");
   const [iban, setIBAN] = useState(user?.iban || "");
+  const [phone, setPhone] = useState(user?.phone || "");
   const [address, setAddress] = useState(user?.address?.address || "");
   const [city, setCity] = useState(user?.address?.city || "");
   const [country, setCountry] = useState(user?.address?.country || "");
@@ -22,6 +24,7 @@ const UserProfile = () => {
   const [passwordSuccessMessage, setPasswordSuccessMessage] = useState("");
   const [nameSuccessMessage, setNameSuccessMessage] = useState("");
   const [addressSuccessMessage, setAddressSuccessMessage] = useState("");
+  const [phoneSuccessMessage, setPhoneSuccessMessage] = useState("");
 
   // Sync the local state with the user context when it changes
   useEffect(() => {
@@ -45,6 +48,9 @@ const UserProfile = () => {
     }
     if (user?.iban) {
       setIBAN(user?.iban);
+    }
+    if (user?.phone) {
+      setPhone(user?.phone);
     }
   }, [user]);
 
@@ -165,7 +171,7 @@ const UserProfile = () => {
     }
   };
 
-  // Function to handle name change
+  // Function to handle IBAN change
   const handleChangeIBAN = async () => {
     if (!iban) {
       setError("Please enter both first and last name.");
@@ -201,6 +207,49 @@ const UserProfile = () => {
       setError("An error occurred while changing the name.");
     } 
   };
+
+  // Function to handle name change
+  const handleChangePhone = async () => {
+    if (!phone) {
+      setError("Please enter both first and last name.");
+   
+      setPhoneSuccessMessage(""); // Clear previous success message
+      return;    
+    }
+    setIsChangingPhone(true);
+    try {
+      const response = await fetch(`https://api.gateclaim.com/user/info/phone?phone=${phone}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "*/*",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          phone,      
+        }),
+      });
+
+      if (response.ok) {
+        // If response is OK, show success message
+        setPhoneSuccessMessage("Phone changed successfully!");
+        // Optionally, update the user context with the new name if necessary
+        const updatedPhone = await response.json();
+        setPhone(updatedPhone); // Update user context with new user data
+      } else {
+        // If response is not OK, handle the error
+        const errorData = await response.json();
+        setError(errorData?.message || "Sorry, something went wrong.");
+      }
+    } catch (err) {
+      // Catch any errors related to the fetch itself
+      setError("An error occurred while changing the name.");
+    } 
+    finally {
+      setIsChangingPhone(false);
+    }
+  };
+
 
   // Function to handle address change
   const handleChangeAddress = async () => {
@@ -279,11 +328,22 @@ const UserProfile = () => {
         <input type="email" value={user?.email || ""} disabled />
 
         <label>Phone Number</label>
-        <input type="tel" value={user?.phone || "Not provided"} disabled />
+        <input 
+        type="tel" 
+        value={phone} 
+        onChange={(e) => setPhone(e.target.value)}
+        />
+        <button
+            className="change-name-btn"
+            onClick={handleChangePhone}     
+          >
+        {isChangingPhone ? "Changing..." : "Change Phone"}
+      </button>
         </div>
+        
       </div>
 
-     
+      {phoneSuccessMessage && <p className="success">{phoneSuccessMessage}</p>}
 
       {/* Success message for name change */}
       {nameSuccessMessage && <p className="success">{nameSuccessMessage}</p>}
