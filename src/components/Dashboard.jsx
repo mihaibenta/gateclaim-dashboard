@@ -7,7 +7,8 @@ import Claim from "../components/Claim";
 const Dashboard = () => {
   return (
     <div className="dashboard">
-      <h2 style={{marginBottom:'15px'}}>Hello Mihai,</h2>
+      <h2 style={{marginBottom:'15px'}}>Hello 
+      </h2>
       <h3>How can we help today?</h3>
       <HelpOptions />
       {/* <Card icon="💰" title="No claims yet" subtitle="Start a new claim now!" /> */}
