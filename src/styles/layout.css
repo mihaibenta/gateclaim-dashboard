@@ -43,6 +43,13 @@
   box-sizing: border-box;
 }
 
+@media screen and (max-width: 768px) {
+  .page-content {
+    margin-bottom: 50px; /* Full width when sidebar is hidden */
+    padding:20px 0px!important;
+  }
+}
+
 /* Bottom Navigation - Hidden by Default */
 .bottom-nav {
   display: none;

@@ -107,7 +107,7 @@ const Navbar = () => {
           onClick={() => setPopupVisible(!isPopupVisible)}
         >
           {/* Check if user is available and user.email is not empty */}
-          {user && user.email ? user.email[0].toUpperCase() : "?"}
+          {user && user?.name?.firstName ? user?.name?.firstName[0].toUpperCase() : "?"}
         </span>
 
         {isPopupVisible && (

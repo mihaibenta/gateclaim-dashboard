@@ -6,7 +6,7 @@ const Claims = () => {
  
 
   return (
-    <div className="page-content">
+    <div className="claim-content">
      <Claim/>
     </div>
   );
